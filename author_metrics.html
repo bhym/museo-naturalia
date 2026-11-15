@@ -37,8 +37,8 @@ main{max-width:1500px;margin:0 auto;padding:22px 27px 55px}.bar{display:flex;fle
 .jif-status{font-size:11px;color:#506985;padding:4px 0}
 .jif-status.warn{color:#99561d}.filter-info{font-weight:600;color:#1b4b70}
 @media(max-width:650px){.dropdown{min-width:0}.dropdown-body{position:fixed;left:12px;right:12px;top:auto;max-height:65vh;overflow:auto;width:auto}}
-</style></head>
-<body><header><div class="eyebrow">Stazione Zoologica Anton Dohrn · Analisi esplorativa 2015–2025</div><h1>Primi autori e collaborazioni scientifiche</h1><p>Uno strumento descrittivo per distinguere volume di pubblicazioni, posizione di primo autore e collaborazioni bibliografiche tra persone e dipartimenti SZN. Non è una graduatoria di merito né una misura automatica di qualità scientifica.</p></header>
+</style><style id="szn-i18n-style">header{position:relative;padding-right:max(125px,calc((100vw - 1430px)/2))}#langToggle{position:absolute;right:18px;top:14px;z-index:60} #langToggle{font:inherit;font-weight:750;font-size:12px;line-height:1;border:1px solid #bdd3e5;background:#ffffff;color:#173c61;border-radius:8px;min-width:86px;padding:10px 12px;cursor:pointer;box-shadow:0 2px 5px #10263b12}#langToggle:hover{background:#eaf4fb}#langToggle:focus-visible{outline:3px solid #79a8d7;outline-offset:2px}</style></head>
+<body><header><button id="langToggle" type="button" data-i18n-ignore aria-label="Switch to English" title="Switch to English">English</button><div class="eyebrow">Stazione Zoologica Anton Dohrn · Analisi esplorativa 2015–2025</div><h1>Primi autori e collaborazioni scientifiche</h1><p>Uno strumento descrittivo per distinguere volume di pubblicazioni, posizione di primo autore e collaborazioni bibliografiche tra persone e dipartimenti SZN. Non è una graduatoria di merito né una misura automatica di qualità scientifica.</p></header>
 <main><div class="bar">
  <div class="field"><label for="period">Periodo</label><select id="period"><option value="2015-2025">2015–2025</option><option value="2021-2025">2021–2025</option><option value="2024-2025">2024–2025</option><option value="2015-2020">2015–2020</option></select></div>
  <div class="field"><label for="dept">Dipartimento</label><select id="dept"><option value="">Tutti</option><option>BEOM</option><option>BLUEBIO</option><option>CAPE</option><option>EMI</option><option>RIMAR</option><option value="ND">Non determinato</option></select></div>
@@ -260,4 +260,191 @@ venueChoices();
 
 $('export').addEventListener('click',()=>{let rows=sortList(active());let heads=['Autore','Ruolo','Dipartimento','Sede','Pubblicazioni','Primo_autore','Quota_primo','Primo_con_altri_SZN','Primo_interdipartimentale','JIF_soglia','Sedi_escluse'];let out=[heads.join(';')];for(let {p,t} of rows){let values=[p.Autore,p.Ruolo,p.Dipartimento,p.Sede,t.all,t.first,t.pct==null?'':t.pct/100,t.collab,t.cross==null?'':t.cross,state.ifThreshold,[...state.excluded].join(' | ')];out.push(values.map(x=>'"'+String(x).replaceAll('"','""')+'"').join(';'))};let blob=new Blob(['\ufeff'+out.join('\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SZN_primi_autori_filtrati.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
 render();
-</script></body></html>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/json" id="szn-i18n-map">{"Periodo":"Period","Dipartimento":"Department","Dipartimenti":"Departments","Non determinato":"Unspecified","Dipartimento non determinato":"Department unspecified","Dipartimento n.d.":"Department n/a","dipartimento n.d.":"department n/a","Dip. non determinato":"Department unspecified","Dip. non noto":"Department unknown","dip. non determinato":"department unspecified","dip. n.d.":"department n/a","Ruolo:":"Role:","Sede:":"Site:","Affiliazione:":"Affiliation:","Verifica:":"Verification:","Fonte:":"Source:","Fonte SZN":"SZN source","Fonte istituzionale / bibliografica":"Institutional / bibliographic source","Data della fonte:":"Source date:","Relazione con SZN:":"Relationship with SZN:","Altra affiliazione documentata:":"Other documented affiliation:","Ruolo non documentato":"Role not documented","Ruolo n.d.":"Role n/a","ruolo n.d.":"role n/a","Pubblicazioni":"Publications","Lavori":"Papers","Coautori":"Coauthors","Coautorie":"Coauthorships","Autori":"Authors","Legenda":"Legend","Mostra":"Show","Nessuna sede esclusa":"No venues excluded","Deseleziona":"Clear selection","Non SZN":"Non-SZN","Solo SZN":"SZN only","Solo non SZN":"Non-SZN only","Tutti":"All","Dipartimento SZN / esterni":"SZN departments / external","SZN / non SZN":"SZN / non-SZN","Affiliazione non determinata":"Affiliation unspecified","Non determinata":"Unspecified","Sede non indicata":"Venue not specified","(non indicata)":"(not specified)","(sede non indicata)":"(venue not specified)","n.d.":"n/a","Ricercatore":"Researcher","Primo ricercatore":"Senior researcher","Dirigente di ricerca":"Research director","Tecnico":"Technician","Collaboratore tecnico":"Technical staff member","Operatore tecnico":"Technical operator","Tecnologo":"Technologist","Primo tecnologo":"Senior technologist","Dirigente tecnologo":"Technology director","Borsista di ricerca":"Research scholarship holder","Borsista":"Scholarship holder","Assegnista di ricerca":"Research fellow (fixed-term grant)","Dottorando":"PhD student","Dottoranda":"PhD student","Postdoc":"Postdoctoral researcher","Contrattista di ricerca":"Research contract holder","Contratto di ricerca":"Research contract","Associato alla ricerca":"Research associate","Associato SZN - Research Fellow":"SZN associate – Research Fellow","Associato SZN - Chair":"SZN associate – Chair","Associato scientifico":"Scientific associate","Profilo storico 2025 (da verificare)":"Historical 2025 profile (verification pending)","Pubblicato su elenco ufficiale (data fonte indicata)":"Listed on official staff page (source date provided)","Pubblicato su elenco ufficiale":"Listed on official staff page","Riscontro 2025, non presente nell’anagrafica 2026":"2025 record; not in the 2026 staff register","SZN · personale tecnico-scientifico":"SZN · scientific and technical staff","SZN · dipartimento non determinato":"SZN · department unspecified","SZN · dip. n.d.":"SZN · department n/a","Sicilia (polo individuale non dichiarato)":"Sicily (individual location not specified)","Sicilia (Messina/Palermo; polo individuale non dichiarato)":"Sicily (Messina/Palermo; individual location not specified)","pagina consultata 08-11-2026; data aggiornamento non dichiarata":"page accessed 8 Nov 2026; update date unspecified","Non SZN · affiliazione documentata":"Non-SZN · documented affiliation","Non SZN · da verificare":"Non-SZN · verification pending","affiliazione da verificare":"affiliation to be verified","Non SZN ·":"Non-SZN ·","Persona SZN":"SZN researcher / staff member","Lavori con autori SZN":"Papers with SZN authors","Autori SZN associati":"Associated SZN authors","Visualizzazione":"Visualization","Stazione Zoologica Anton Dohrn · Analisi esplorativa 2015–2025":"Stazione Zoologica Anton Dohrn · Exploratory analysis 2015–2025","Primi autori e collaborazioni scientifiche":"First authors and scientific collaborations","Uno strumento descrittivo per distinguere volume di pubblicazioni, posizione di primo autore e collaborazioni bibliografiche tra persone e dipartimenti SZN. Non è una graduatoria di merito né una misura automatica di qualità scientifica.":"A descriptive tool to distinguish publication volume, first-author position, and bibliographic collaborations between SZN individuals and departments. It is neither a merit ranking nor an automatic measure of scientific quality.","Tutti, inclusi associati":"All, including associates","Profilo professionale":"Professional category","Strutturato (ricerca + tecnici + tecnologi)":"Permanent staff (researchers + technicians + technologists)","Ricercatori e dirigenti":"Researchers and research directors","Tecnici e tecnologi":"Technicians and technologists","Assegnisti, borsisti, postdoc, dottorandi":"Research fellows, scholarship holders, postdocs, PhD students","Associati scientifici":"Scientific associates","Altro / non determinato":"Other / unspecified","Cerca autore":"Find author","Nome o cognome...":"First or last name...","Min. lavori nel periodo":"Min. papers in period","JIF 2025 minimo (JCR 2026)":"Minimum 2025 JIF (JCR 2026)","Nessuna soglia":"No threshold","JIF presente (≥ 0)":"JIF available (≥ 0)","Esclusioni editoriali personalizzate":"Custom journal/publisher exclusions","Lista di attenzione modificabile,":"Editable watchlist,","non":"not an","elenco ufficiale di riviste predatorie. Selezionare significa escludere i lavori dalla vista.":"official list of predatory journals. Selecting an entry excludes its papers from the view.","Altre sedi del dataset":"Other publication venues in the dataset","Deseleziona tutte":"Clear all","Cerca sede editoriale...":"Search publication venue...","Esporta tabella filtrata CSV":"Export filtered table (CSV)","Filtri sui soli lavori a primo autore.":"Filters apply only to first-author papers.","Il totale delle pubblicazioni non cambia. La checklist non esprime giudizi sulla qualità dei singoli lavori.":"Total publication counts remain unchanged. The checklist does not judge the quality of individual papers.","Carica JIF verificati (opzionale):":"Upload verified JIFs (optional):","Scarica modello CSV JIF":"Download JIF CSV template","Mantieni sedi senza JIF (non comparabili)":"Keep venues without JIF (not comparable)","Nessun JIF caricato. Per applicare una soglia importa un CSV con Source, JIF_2025 (JCR 2026).":"No JIF data loaded. To apply a threshold, import a CSV with Source and JIF_2025 (JCR 2026).","Autori SZN inclusi nei filtri":"SZN authors included by filters","Lavori a primo autore SZN":"SZN first-author papers","A primo nome con altri coautori SZN":"First-author papers with other SZN coauthors","A primo nome con un altro dipartimento noto":"First-author papers with another known department","Posizione di primo autore rispetto alla produzione":"First authorship versus publication output","Ogni punto è una persona. Ascissa: produzione totale nel periodo, invariata dai filtri editoriali; ordinata: primi nomi dopo i filtri. Diametro: collaborazioni da primo autore con altri SZN. Scale log(1+x).":"Each point represents a person. X-axis: total publications during the period, unaffected by editorial filters; Y-axis: first-author papers after filtering. Dot diameter: first-author collaborations with other SZN authors. Both axes use log(1+x) scales.","Matrice direzionale di collaborazione":"Directed collaboration matrix","Dipartimento del primo autore (righe) → dipartimento dei coautori SZN (colonne).":"First-author department (rows) → SZN coauthor department (columns).","Intensità normalizzata":"Normalized intensity","Associazioni di coautoria":"Coauthorship occurrences","Autori SZN — indicatori descrittivi":"SZN authors — descriptive indicators","Clicca un'intestazione per ordinare; clicca una persona per aprire il dettaglio. La quota a primo nome usa come denominatore tutti i lavori nel periodo; il numeratore risente delle esclusioni editoriali eventualmente selezionate.":"Click a column header to sort, or select a person to view their profile. The first-author share uses all papers in the period as its denominator; its numerator reflects any selected editorial exclusions.","Sedi bibliografiche nei lavori a primo nome":"Publication venues of first-author papers","Distribuzione delle sedi dei lavori a primo autore dopo gli eventuali filtri editoriali. Nessuna testata è automaticamente classificata come predatoria.":"Distribution of venues for first-author papers after any editorial filters. No journal is automatically classified as predatory.","La selezione per editore/rivista è soggettiva e disattivata all’avvio. Le sedi editoriali non presenti nei metadati sono gestite come mancanti, non come riviste di bassa qualità.":"Journal/publisher selection is subjective and inactive by default. Venues missing from the metadata are treated as missing, not as low-quality journals.","Profilo individuale":"Individual profile","Seleziona un autore dalla tabella o dallo scatter.":"Select an author from the table or scatter plot.","Collaborazioni orientate dal primo autore":"Collaborations directed by first authorship","A → B indica un lavoro in cui A figura come primo autore e B come coautore SZN. Ogni arco vale tanti lavori quanti sono condivisi con quest'ordine.":"A → B represents a paper where A is first author and B is an SZN coauthor. Each edge weight equals the number of papers shared in this order.","Interpretazione e limiti":"Interpretation and limitations","Primo nome":"First-author position","= prima stringa della colonna":"= first name string in the",", non necessariamente primo autore CRediT o autore con maggior contributo.":", which is not necessarily the first CRediT author or the person making the largest contribution.","Collaborazione SZN":"SZN collaboration","= almeno un altro autore riconosciuto nella ricostruzione dell’anagrafica SZN, anche se la sua affiliazione storica può essere diversa.":"= at least one other author identified in the reconstructed SZN staff list, even though their historical affiliation may have differed.","= almeno un altro autore riconosciuto nella ricostruzione dell'anagrafica SZN, anche se la sua affiliazione storica può essere diversa.":"= at least one other author identified in the reconstructed SZN staff list, even though their historical affiliation may have differed.","Interdipartimentale":"Cross-departmental","= dipartimenti distinti e documentati nell’anagrafica. Se il dipartimento è ignoto, la metrica è non determinata.":"= different departments documented in the staff records. If a department is unknown, this metric is unspecified.","= dipartimenti distinti e documentati nell'anagrafica. Se il dipartimento è ignoto, la metrica è non determinata.":"= different departments documented in the staff records. If a department is unknown, this metric is unspecified.","Perimetro":"Scope","= dataset OpenAlex selezionato, non tutta la produzione dei singoli. Titoli mancanti e record titolo–anno duplicati sono esclusi dal conteggio principale.":"= the selected OpenAlex dataset, not each person’s complete scientific output. Missing titles and duplicate title–year records are excluded from the main counts.","Confronti individuali":"Individual comparisons","= non normalizzati per età accademica, tipo di prodotto, disciplina, FTE, periodo di servizio o contributi CRediT; quindi non adatti da soli a valutazioni individuali.":"= not normalized for career stage, publication type, discipline, FTE, employment period, or CRediT contributions; unsuitable on their own for individual assessment.","Riviste":"Journals","= i dati originali riportano":"= the original data contain",", non ISSN né editore. La lista di attenzione non è una blacklist né una valutazione di qualità. Il JIF 2025 importabile è un dato":", not ISSN or publisher. The watchlist is neither a blacklist nor a quality rating. The importable 2025 JIF is a","di rivista":"journal-level measure",", riferito al 2025 (JCR 2026), non all’anno di pubblicazione del singolo lavoro; le sedi non verificate rimangono senza valore.":", referring to 2025 (JCR 2026), not to the year of each paper; unverified venues remain without a value.",", riferito al 2025 (JCR 2026), non all'anno di pubblicazione del singolo lavoro; le sedi non verificate rimangono senza valore.":", referring to 2025 (JCR 2026), not to the year of each paper; unverified venues remain without a value.","Registro norvegese":"Norwegian Register","Dati: CSV OpenAlex fornito per il periodo 2015–2025; anagrafica SZN ricostruita 2025–2026. Esclusi 29 record senza titolo e 59 record con titolo–anno duplicato: 4.015 record analizzati. Le affiliazioni e l’ordine di firma non sono verificati individualmente sui full text. HTML interamente offline, nessuna libreria esterna. Il filtro JIF usa solo valori caricati dall’utente e viene applicato come JIF 2025 a tutti gli anni.":"Data: OpenAlex CSV provided for 2015–2025; reconstructed SZN staff list for 2025–2026. Excluded: 29 records without titles and 59 duplicate title–year records; 4,015 records analyzed. Affiliations and author order were not individually checked against the full texts. Entirely offline HTML, with no external libraries. The JIF filter uses only user-uploaded values and applies the 2025 JIF to every year.","Dati: CSV OpenAlex fornito per il periodo 2015–2025; anagrafica SZN ricostruita 2025–2026. Esclusi 29 record senza titolo e 59 record con titolo–anno duplicato: 4.015 record analizzati. Le affiliazioni e l'ordine di firma non sono verificati individualmente sui full text. HTML interamente offline, nessuna libreria esterna. Il filtro JIF usa solo valori caricati dall’utente e viene applicato come JIF 2025 a tutti gli anni.":"Data: OpenAlex CSV provided for 2015–2025; reconstructed SZN staff list for 2025–2026. Excluded: 29 records without titles and 59 duplicate title–year records; 4,015 records analyzed. Affiliations and author order were not individually checked against the full texts. Entirely offline HTML, with no external libraries. The JIF filter uses only user-uploaded values and applies the 2025 JIF to every year.","Lavori a primo autore nella selezione":"First-author papers in selection","Primo autore":"First author","Tutti i lavori":"All papers","Quota a primo nome":"First-author share","Primo con altri SZN":"First with other SZN authors","Primo interdip.":"Cross-department first-authored","Primi con sede indicata":"First-authored papers with known venue","Collaboratori SZN in lavori a primo nome":"SZN collaborators in first-author papers","Sedi dei lavori a primo nome (dopo i filtri)":"First-author publication venues (after filters)","Ultimi lavori a primo autore nella selezione":"Most recent first-author papers in selection","Non rilevati nel periodo":"None found in this period","Nessun lavoro a primo nome nel periodo":"No first-author papers in this period","Sede riportata":"Reported venue","Primi SZN":"SZN first-author papers","Tipo provvisorio":"Provisional type","Sede bibliografica indicata":"Publication venue specified","Sede non riportata":"Venue not reported","Repository / preprint":"Repository / preprint","Autore":"Author","Totale":"Total","Primo":"First","% primo":"% first","Con altri SZN":"With other SZN authors","Interdip.":"Cross-dept.","Primo autore → coautore":"First author → coauthor","Scatter pubblicazioni totali contro pubblicazioni da primo autore":"Scatter plot of total versus first-author publications","Pubblicazioni nel dataset":"Publications in dataset","Pubblicazioni a primo autore":"First-author publications","A primo nome":"First-authored","Ogni lavoro conta una volta per ciascuna coppia ordinata primo autore–coautore SZN. La stessa pubblicazione può contribuire a più celle.":"Each paper is counted once per ordered first-author–SZN coauthor pair. A single paper may contribute to multiple cells.","Peso totale delle coautorie ordinate, diviso per le coppie dirette di autori potenziali, sulla base degli autori SZN attivi nel periodo. Può superare 1. Non misura la qualità scientifica.":"Total weight of directed coauthorships divided by the number of potential ordered author pairs, using SZN authors active during the period. It can exceed 1 and does not measure scientific quality.","Nessun autore per i filtri correnti.":"No authors match the current filters.","MDPI — testate riconosciute nel dataset":"MDPI — matched journals in the dataset","__title_it":"SZN · Primi autori e collaborazioni 2015–2025","SZN · Primi autori e collaborazioni 2015–2025":"SZN · First authors and collaborations · 2015–2025"}</script>
+
+<script id="szn-i18n">
+(()=>{
+'use strict';
+const D=JSON.parse(document.getElementById('szn-i18n-map').textContent);
+let lang='it';
+const originalText=new WeakMap(), originalAttrs=new WeakMap();
+const toggle=document.getElementById('langToggle');
+const SKIP='script,style,noscript,[data-i18n-ignore]';
+const ATTRS=['title','placeholder','aria-label'];
+function translate(s){
+  if(!s || !s.trim())return s;
+  const match=s.match(/^(\s*)([\s\S]*?)(\s*)$/);
+  const key=match[2];
+  let v=D[key];
+  if(v===undefined){
+    v=key;
+    // Dynamic counts and status messages, with values preserved exactly.
+    v=v.replace(/\b(\d[\d.,]*)\s+lavori a primo nome\b/g,(_,n)=>n+' first-author '+(n==='1'?'paper':'papers'))
+       .replace(/\b(\d[\d.,]*)\s+lavori\b/g,(_,n)=>n+' '+(n==='1'?'paper':'papers'))
+       .replace(/\b(\d[\d.,]*)\s+coautori SZN\b/g,(_,n)=>n+' SZN '+(n==='1'?'coauthor':'coauthors'))
+       .replace(/\b(\d[\d.,]*)\s+coautori\b/g,(_,n)=>n+' '+(n==='1'?'coauthor':'coauthors'))
+       .replace(/\b(\d[\d.,]*)\s+pubblicazioni\b/g,(_,n)=>n+' '+(n==='1'?'publication':'publications'))
+       .replace(/\b(\d[\d.,]*)\s+autori SZN\b/g,'$1 SZN authors')
+       .replace(/\b(\d[\d.,]*)\s+associazioni\b/g,'$1 links')
+       .replace(/\b(\d+)\s+esclusioni selezionate\b/g,(_,n)=>n+' '+(n==='1'?'exclusion':'exclusions')+' selected')
+       .replace(/\b(\d+)\s+altre sedi: usa la ricerca\./g,'$1 more venues: use search.')
+       .replace(/\b(\d+)\s+persone\b/g,'$1 people')
+       .replace(/\b(\d+)\s+anelli\b/g,'$1 rings')
+       .replace(/\b(\d+)\s+anello\b/g,'$1 ring');
+    v=v.replace(/^(.+) · (\d+) (?:papers|paper), (\d+) da primo autore, (\d+) con altri SZN$/,'$1 · $2 papers, $3 first-author, $4 with other SZN coauthors');
+    v=v.replace(/^Lavori a primo autore nella selezione: (.+) su (.+) \((.+) esclusi\)\.$/,
+      'First-author papers in selection: $1 of $2 ($3 excluded).');
+    v=v.replace(/^Riordinati (.+) coautori in (.+) (anello|anelli)\. Puoi ancora trascinarli manualmente\.$/,
+      'Arranged $1 coauthors in $2 $3. You can still drag them manually.');
+    v=v.replace(/^FR pesato · rilassamento (.+)$/,'Weighted FR · relaxation $1');
+    v=v.replace(/^JIF importati: (.+) sedi; (.+) lavori a primo autore con valore associato; (.+) righe scartate\. Riferimento: JIF 2025 \(JCR 2026\), applicato a tutti gli anni\.$/,
+      'JIFs imported: $1 venues; $2 first-author papers matched; $3 rows discarded. Reference: 2025 JIF (JCR 2026), applied to all years.');
+    v=v.replace(/^Importazione JIF non riuscita: (.+)$/,'JIF import failed: $1');
+    v=v.replace(/^Principali coautori visibili \((.+)\)$/,'Main visible coauthors ($1)');
+    v=v.replace(/^Autori SZN associati \((.+)\)$/,'Associated SZN authors ($1)');
+    v=v.replace(/^Riordina coautori \((.+)\)$/,'Arrange coauthors ($1)');
+    v=v.replace(/^Mostrati i primi (\d+)\.$/,'Showing the top $1.');
+    v=v.replace(/^Mostrati i primi (\d+) per lavori condivisi\.$/,'Showing the top $1 by shared papers.');
+    v=v.replace(/^Principali (Keyword|Topic|Subfield|Concept|Keywords|Topics|Subfields|Concepts) \((.+)\)$/,(m,kind,num)=>'Top '+({Keyword:'keywords',Topic:'topics',Subfield:'subfields',Concept:'concepts'}[kind]||kind.toLowerCase())+' ('+num+')');
+    v=v.replace(/^(Keyword|Topic|Subfield|Concept) distinti$/,(m,kind)=>'Distinct '+({Keyword:'keywords',Topic:'topics',Subfield:'subfields',Concept:'concepts'}[kind]||kind.toLowerCase()));
+    v=v.replace(/^Primo(\s+[↑↓])$/,'First$1');
+    v=v.replace(/^Ordina per (.+)$/,(m,kind)=>'Sort by '+(D[kind]||kind));
+    v=v.replace(/^Riordinati (.+) coauthors in (.+) (?:ring|rings|anello|anelli)\. Puoi ancora trascinarli manualmente\.$/,(m,n,r)=>'Arranged '+n+' coauthors in '+r+(r==='1'?' ring':' rings')+'. You can still drag them manually.');
+    // Replacements for fragments that may contain numeric values or markup siblings.
+    {
+      const bits=[
+        [' pubblicazioni del CSV 2015–2025 riconosciute per nome',' publications in the 2015–2025 CSV matched by name'],
+        [' publications del CSV 2015–2025 riconosciute per nome',' publications in the 2015–2025 CSV matched by name'],
+        [' publication del CSV 2015–2025 riconosciute per nome',' publication in the 2015–2025 CSV matched by name'],
+        [' (nel grafo sono indicati ',' (the network shows '],
+        [' lavori). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' papers). Topics are derived from publication metadata, not directly assigned to the author.'],
+        [' papers). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' papers). Topics are derived from publication metadata, not directly assigned to the author.'],
+        [' paper). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' paper). Topics are derived from publication metadata, not directly assigned to the author.'],
+        ['. Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.','. Topics are derived from publication metadata, not directly assigned to the author.'],
+        ['Lavori con autori SZN','Papers with SZN authors'],
+        ['Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.','Topics derived from publication metadata, not directly assigned to the author.'],
+        ['Verifica: ','Verification: '],
+        ['Ruolo: ','Role: '],
+        ['Sede: ','Site: '],
+        ['Fonte: ','Source: '],
+        ['Relazione con SZN: ','Relationship with SZN: '],
+        ['Fonte della fonte: ','Source information: '],
+        ['Pubblicato su elenco ufficiale (data fonte indicata)','Listed on official staff page (source date provided)'],
+        ['Associato SZN - Chair','SZN associate – Chair'],
+        ['Associato SZN - Research Fellow','SZN associate – Research Fellow'],
+        ['Keyword distinti','Distinct keywords'],
+        ['Topic distinti','Distinct topics'],
+        ['Subfield distinti','Distinct subfields'],
+        ['Concept distinti','Distinct concepts'],
+        ['SZN · scientific/technical staff','SZN · scientific/technical staff'],
+        [' SZN nel dataset · ',' SZN authors in the dataset · '],
+        [' SZN authors nel dataset · ',' SZN authors in the dataset · '],
+        [' keyword disponibili',' keywords available'],
+        [' topic disponibili',' topics available'],
+        [' subfield disponibili',' subfields available'],
+        [' concept disponibili',' concepts available'],
+        ['Nessun JIF valido trovato (verifica anno JCR e colonne)','No valid JIF found (check JCR year and columns)'],
+        ['CSV vuoto','Empty CSV'],
+        ['Colonne richieste: Source e JIF_2025','Required columns: Source and JIF_2025'],
+        ['Per applicare una soglia JIF importa prima un CSV verificato per l’edizione JCR 2026.','To apply a JIF threshold, first import a verified CSV for JCR 2026.'],
+        ['lavori nell\'esportazione','papers in the export'],
+        ['lavori con almeno un autore SZN','papers with at least one SZN author'],
+        ['autori SZN collegati (senza soglia)','SZN authors linked (no threshold)'],
+        ['SZN · dip. n.d.','SZN · department n/a'],
+        ['Non SZN · ','Non-SZN · '],
+        ['SZN · personale tecnico-scientifico','SZN · scientific/technical staff'],
+        ['SZN · ','SZN · '],
+        [' · affiliazione documentata',' · documented affiliation'],
+        [' · da verificare',' · verification pending'],
+        ['Dipartimento non determinato','Department unspecified'],
+        ['Dipartimento n.d.','Department n/a'],
+        ['Sicilia (polo individuale non dichiarato)','Sicily (specific location not stated)'],
+        ['Sicilia (Messina/Palermo; polo individuale non dichiarato)','Sicily (Messina/Palermo; specific location not stated)'],
+        ['Sede bibliografica indicata','Publication venue specified'],
+        ['Sede non riportata','Venue not reported'],
+        ['Frequenze calcolate','Frequencies calculated'],
+        ['ruolo n.d.','role n/a'],
+        ['non SZN','non-SZN'],
+      ];
+      for(const [a,b] of bits)if(v.includes(a))v=v.replaceAll(a,b);
+      v=v.replace(/^JIF importati: ([^;]+) sedi; ([^;]+) first-author papers con valore associato; ([^;]+) righe scartate\. Riferimento: JIF 2025 \(JCR 2026\), applicato a tutti gli anni\.$/,'JIFs imported: $1 venues; $2 first-author papers matched; $3 rows discarded. Reference: 2025 JIF (JCR 2026), applied to all years.');
+    }
+    // Mixed metadata rows contain a department and role separated by a dot.
+    if(v.includes(' · '))v=v.split(' · ').map(p=>D[p]||p).join(' · ');
+    // Short dynamic tokens are stored separately in the exact dictionary.
+  }
+  return match[1]+v+match[3];
+}
+function eligible(el){return el && el.nodeType===1 && !el.closest(SKIP);}
+function processText(node){
+  if(node.nodeType!==3 || !node.parentElement || !eligible(node.parentElement))return;
+  let original=originalText.get(node),current=node.nodeValue;
+  if(original===undefined){original={it:current,en:null};originalText.set(node,original);}
+  else if(current!==original.it && current!==original.en){original.it=current;original.en=null;}
+  const target=lang==='en'?translate(original.it):original.it;
+  if(current!==target){original.en=lang==='en'?target:original.en;node.nodeValue=target;}
+}
+function processAttrs(el){
+  if(!eligible(el))return;
+  let saved=originalAttrs.get(el);if(!saved){saved={};originalAttrs.set(el,saved);}
+  for(const a of ATTRS){
+    if(!el.hasAttribute(a))continue;
+    const cur=el.getAttribute(a),r=saved[a];
+    if(!r){saved[a]={it:cur,en:null};}
+    else if(cur!==r.it && cur!==r.en){r.it=cur;r.en=null;}
+    const v=saved[a],want=lang==='en'?translate(v.it):v.it;
+    if(cur!==want){if(lang==='en')v.en=want;el.setAttribute(a,want);}
+  }
+}
+function scan(root){
+  if(root.nodeType===3){processText(root);return;}
+  if(root.nodeType!==1 || !eligible(root))return;
+  processAttrs(root);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_TEXT,{
+    acceptNode(n){
+      if(n.nodeType===1){if(n.matches(SKIP))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  while(walker.nextNode()){
+    const n=walker.currentNode;
+    if(n.nodeType===3)processText(n);else processAttrs(n);
+  }
+}
+let queued=new Set(),scheduled=false;
+function queue(root){queued.add(root);if(!scheduled){scheduled=true;queueMicrotask(()=>{scheduled=false;const list=[...queued];queued.clear();for(const item of list)scan(item);});}}
+const observer=new MutationObserver(changes=>{for(const c of changes){
+  if(c.type==='characterData'){queue(c.target);continue;}
+  if(c.type==='attributes'){queue(c.target);continue;}
+  queue(c.target);
+}});
+function setLang(next){lang=next;document.documentElement.lang=lang;toggle.textContent=lang==='it'?'English':'Italiano';
+ toggle.setAttribute('aria-label',lang==='it'?'Switch to English':'Passa all’italiano');
+ toggle.setAttribute('title',lang==='it'?'Switch to English':'Passa all’italiano');
+ document.title=lang==='en'?translate(D.__title_it):D.__title_it;
+ scan(document.body);
+}
+toggle.addEventListener('click',()=>setLang(lang==='it'?'en':'it'));
+window.sznSetLanguage=setLang; // Optional programmatic control for testing.
+observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+setLang('it');
+})();
+</script>
+
+</body></html>

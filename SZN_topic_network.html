@@ -36,12 +36,12 @@ input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer}input[typ
 @media(max-width:1000px){.shell{grid-template-columns:240px minmax(0,1fr) 265px}.sidebar-inner{padding:16px 12px}.header-stats{gap:8px}}
 @media(max-width:700px){body{overflow:auto}header{height:auto;flex-wrap:wrap;padding:12px}.shell{height:auto;grid-template-columns:1fr}.left,.right{border:0;border-top:1px solid var(--line)}.left{order:2}.stage{height:64vh;min-height:400px;order:1}.right{order:3}.header-stats{gap:14px}}
 </style>
-</head>
+<style id="szn-i18n-style">header #langToggle{flex-shrink:0}header{gap:12px} #langToggle{font:inherit;font-weight:750;font-size:12px;line-height:1;border:1px solid #bdd3e5;background:#ffffff;color:#173c61;border-radius:8px;min-width:86px;padding:10px 12px;cursor:pointer;box-shadow:0 2px 5px #10263b12}#langToggle:hover{background:#eaf4fb}#langToggle:focus-visible{outline:3px solid #79a8d7;outline-offset:2px}@media(max-width:700px){header{flex-wrap:wrap}header #langToggle{order:0;margin-left:auto}}</style></head>
 <body>
 <header>
  <div><h1>Stazione Zoologica Anton Dohrn · Network autori–temi</h1><p>Grafo bipartito · pubblicazioni 2015–2025 · esclusivamente personale e associati scientifici SZN</p></div>
  <div class="header-stats"><div class="header-stat"><strong id="statAuthors">—</strong><small>Autori SZN visibili</small></div><div class="header-stat"><strong id="statTerms">—</strong><small>Termini visibili</small></div><div class="header-stat"><strong id="statEdges">—</strong><small>Associazioni visibili</small></div></div>
-</header>
+<button id="langToggle" type="button" data-i18n-ignore aria-label="Switch to English" title="Switch to English">English</button></header>
 <div class="shell">
  <aside class="left"><div class="sidebar-inner">
   <p class="eyebrow">Esplora il dataset</p><h2>Autori e contenuti scientifici</h2>
@@ -361,4 +361,191 @@ filters();legend();resize();rebuild(true);
 if(typeof ResizeObserver!=='undefined')new ResizeObserver(resize).observe(stage);else window.addEventListener('resize',resize);
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/json" id="szn-i18n-map">{"Periodo":"Period","Dipartimento":"Department","Dipartimenti":"Departments","Non determinato":"Unspecified","Dipartimento non determinato":"Department unspecified","Dipartimento n.d.":"Department n/a","dipartimento n.d.":"department n/a","Dip. non determinato":"Department unspecified","Dip. non noto":"Department unknown","dip. non determinato":"department unspecified","dip. n.d.":"department n/a","Ruolo:":"Role:","Sede:":"Site:","Affiliazione:":"Affiliation:","Verifica:":"Verification:","Fonte:":"Source:","Fonte SZN":"SZN source","Fonte istituzionale / bibliografica":"Institutional / bibliographic source","Data della fonte:":"Source date:","Relazione con SZN:":"Relationship with SZN:","Altra affiliazione documentata:":"Other documented affiliation:","Ruolo non documentato":"Role not documented","Ruolo n.d.":"Role n/a","ruolo n.d.":"role n/a","Pubblicazioni":"Publications","Lavori":"Papers","Coautori":"Coauthors","Coautorie":"Coauthorships","Autori":"Authors","Legenda":"Legend","Mostra":"Show","Nessuna sede esclusa":"No venues excluded","Deseleziona":"Clear selection","Non SZN":"Non-SZN","Solo SZN":"SZN only","Solo non SZN":"Non-SZN only","Tutti":"All","Dipartimento SZN / esterni":"SZN departments / external","SZN / non SZN":"SZN / non-SZN","Affiliazione non determinata":"Affiliation unspecified","Non determinata":"Unspecified","Sede non indicata":"Venue not specified","(non indicata)":"(not specified)","(sede non indicata)":"(venue not specified)","n.d.":"n/a","Ricercatore":"Researcher","Primo ricercatore":"Senior researcher","Dirigente di ricerca":"Research director","Tecnico":"Technician","Collaboratore tecnico":"Technical staff member","Operatore tecnico":"Technical operator","Tecnologo":"Technologist","Primo tecnologo":"Senior technologist","Dirigente tecnologo":"Technology director","Borsista di ricerca":"Research scholarship holder","Borsista":"Scholarship holder","Assegnista di ricerca":"Research fellow (fixed-term grant)","Dottorando":"PhD student","Dottoranda":"PhD student","Postdoc":"Postdoctoral researcher","Contrattista di ricerca":"Research contract holder","Contratto di ricerca":"Research contract","Associato alla ricerca":"Research associate","Associato SZN - Research Fellow":"SZN associate – Research Fellow","Associato SZN - Chair":"SZN associate – Chair","Associato scientifico":"Scientific associate","Profilo storico 2025 (da verificare)":"Historical 2025 profile (verification pending)","Pubblicato su elenco ufficiale (data fonte indicata)":"Listed on official staff page (source date provided)","Pubblicato su elenco ufficiale":"Listed on official staff page","Riscontro 2025, non presente nell’anagrafica 2026":"2025 record; not in the 2026 staff register","SZN · personale tecnico-scientifico":"SZN · scientific and technical staff","SZN · dipartimento non determinato":"SZN · department unspecified","SZN · dip. n.d.":"SZN · department n/a","Sicilia (polo individuale non dichiarato)":"Sicily (individual location not specified)","Sicilia (Messina/Palermo; polo individuale non dichiarato)":"Sicily (Messina/Palermo; individual location not specified)","pagina consultata 08-11-2026; data aggiornamento non dichiarata":"page accessed 8 Nov 2026; update date unspecified","Non SZN · affiliazione documentata":"Non-SZN · documented affiliation","Non SZN · da verificare":"Non-SZN · verification pending","affiliazione da verificare":"affiliation to be verified","Non SZN ·":"Non-SZN ·","Persona SZN":"SZN staff member","Lavori con autori SZN":"Papers with SZN authors","Autori SZN associati":"Associated SZN authors","Visualizzazione":"Visualization","Stazione Zoologica Anton Dohrn · Network autori–temi":"Stazione Zoologica Anton Dohrn · Author–topic network","Grafo bipartito · pubblicazioni 2015–2025 · esclusivamente personale e associati scientifici SZN":"Bipartite graph · publications 2015–2025 · SZN scientific staff and research associates only","Autori SZN visibili":"Visible SZN authors","Termini visibili":"Visible terms","Associazioni visibili":"Visible links","Esplora il dataset":"Explore the dataset","Autori e contenuti scientifici":"Authors and research topics","Tipo di metadato":"Metadata type","Cerca autore o termine":"Find an author or term","Es. diatoms, Zingone, microplastics":"e.g., diatoms, Zingone, microplastics","Termini più frequenti":"Most frequent terms","Lavori autore–termine (min.)":"Author–term papers (min.)","Algoritmo di layout":"Layout algorithm","Fruchterman–Reingold pesato (force-directed)":"Weighted Fruchterman–Reingold (force-directed)","Bipartito a colonne (confronto)":"Bipartite columns (comparison)","Rilassa il grafo quando modifico i filtri":"Relax graph when filters change","FR: attrazione sugli archi e repulsione tra tutti i nodi; i pesi influenzano l'attrazione. Il calcolo si arresta dopo la convergenza programmata.":"FR: attraction along edges and repulsion between all nodes; edge weights affect attraction. Computation stops after the scheduled convergence.","Mostra anche autori senza legami visibili":"Also show authors without visible links","Mostra etichette principali":"Show main labels","Mostra solo i vicini della selezione":"Show only neighbors of selection","Ricalcola layout":"Recompute layout","Ferma fisica":"Pause physics","Riprendi fisica":"Resume physics","Adatta vista":"Fit view","Esporta PNG":"Export PNG","I collegamenti rappresentano":"Links represent","pubblicazioni che associano un autore SZN a un termine OpenAlex":"publications linking an SZN author to an OpenAlex term",". Il peso è il numero di lavori, non una misura di affiliazione o di competenza individuale. La presenza nella categoria SZN deriva dall'anagrafica ricostruita, che comprende anche associati e personale storico.":". Edge weight is the number of papers, not a measure of affiliation or individual expertise. SZN membership comes from the reconstructed staff records, which also include associates and former staff.","Trascina un nodo per bloccarne la posizione; il resto della rete si riassesta. Trascina lo sfondo e usa la rotella per lo zoom. Clicca un nodo per vedere tutte le associazioni in ordine di frequenza. I termini non visualizzati nella classifica iniziale restano ricercabili.":"Drag a node to pin its position; the rest of the network will adjust. Drag the background to pan, and use the mouse wheel to zoom. Click a node to see all connections ranked by frequency. Terms not initially displayed remain searchable.","● PERSONALE SZN":"● SZN STAFF","Trascina i nodi per modificarne la posizione · Clicca per i dettagli":"Drag nodes to move them · Click for details","FR · preparazione…":"FR · preparing…","Layout: due colonne · nessuna simulazione":"Layout: two columns · no simulation","FR pesato · fisica disattivata":"Weighted FR · physics disabled","FR pesato · in pausa":"Weighted FR · paused","FR pesato · disposizione stabilizzata":"Weighted FR · layout stabilized","Approfondimento":"Details","Seleziona un nodo":"Select a node","Autori a sinistra":"Authors on the left",": il personale scientifico SZN, distinto per dipartimento.":": SZN scientific staff, colored by department.","Termini a destra":"Terms on the right",": keyword, topic, sottodiscipline oppure concept delle pubblicazioni.":": publication keywords, topics, subfields, or concepts.","Spessore del collegamento":"Edge thickness",": numero di lavori in cui compaiono insieme autore e termine.":": the number of papers connecting an author and a term.","Puoi cercare un autore o un termine anche se al momento non è visualizzato. La scheda mostrerà le connessioni complete nel metadato selezionato.":"You can search for an author or term even when it is not currently displayed. The profile will show all connections for the selected metadata type.","Fonte e cautela":"Source and caveat","Metadati dell'esportazione OpenAlex 2015–2025 fornita dall'utente. Identificazione degli autori tramite nomi e roster SZN ricostruito nel 2026; il rapporto con SZN non è verificato per ogni singolo anno. I termini sono attribuiti ai lavori, non necessariamente scelti dagli autori.":"Metadata from the user-provided 2015–2025 OpenAlex export. Authors were identified by name matching against the reconstructed 2026 SZN staff list; SZN affiliation was not verified for every year. Terms are assigned to papers, not necessarily chosen by their authors.","Pubblicazioni nel CSV":"Publications in CSV","Profilo SZN":"SZN profile","Frequenze calcolate su tutti i lavori abbinati, indipendentemente dai filtri di visualizzazione.":"Frequencies are based on all matched papers, regardless of display filters.","Nessun termine disponibile.":"No terms available.","Mostra i suoi termini":"Show this author’s terms","Mostra i suoi autori":"Show authors linked to this term","Mostrati i primi":"Showing top","Principali":"Top","distinti":"distinct","Ordinati per numero di pubblicazioni associate al termine, senza applicare la soglia visiva.":"Sorted by number of papers associated with the term, without applying the display threshold.","FR pesato: tutti i nodi si respingono; ciascun arco esercita attrazione crescente (logaritmica) con il numero di lavori. Trascinare un nodo ne fissa la posizione.":"Weighted FR: all nodes repel each other; edges attract with strength increasing logarithmically with the number of shared papers. Dragging a node pins its position.","Layout baricentrico a due colonne: utile come confronto, ma non descrive distanze topologiche.":"Two-column barycentric layout: useful for comparison, but it does not represent topological distances.","Nessun autore con i dipartimenti selezionati.":"No authors in the selected departments.","Termine ·":"Term ·","KEYWORD":"KEYWORDS","Keyword":"Keywords","Topic":"Topics","Subfield":"Subfields","Concept":"Concepts","__title_it":"SZN · Rete bipartita autori–temi · 2015–2025","SZN · Rete bipartita autori–temi · 2015–2025":"SZN · Bipartite author–topic network · 2015–2025"}</script>
+
+<script id="szn-i18n">
+(()=>{
+'use strict';
+const D=JSON.parse(document.getElementById('szn-i18n-map').textContent);
+let lang='it';
+const originalText=new WeakMap(), originalAttrs=new WeakMap();
+const toggle=document.getElementById('langToggle');
+const SKIP='script,style,noscript,[data-i18n-ignore]';
+const ATTRS=['title','placeholder','aria-label'];
+function translate(s){
+  if(!s || !s.trim())return s;
+  const match=s.match(/^(\s*)([\s\S]*?)(\s*)$/);
+  const key=match[2];
+  let v=D[key];
+  if(v===undefined){
+    v=key;
+    // Dynamic counts and status messages, with values preserved exactly.
+    v=v.replace(/\b(\d[\d.,]*)\s+lavori a primo nome\b/g,(_,n)=>n+' first-author '+(n==='1'?'paper':'papers'))
+       .replace(/\b(\d[\d.,]*)\s+lavori\b/g,(_,n)=>n+' '+(n==='1'?'paper':'papers'))
+       .replace(/\b(\d[\d.,]*)\s+coautori SZN\b/g,(_,n)=>n+' SZN '+(n==='1'?'coauthor':'coauthors'))
+       .replace(/\b(\d[\d.,]*)\s+coautori\b/g,(_,n)=>n+' '+(n==='1'?'coauthor':'coauthors'))
+       .replace(/\b(\d[\d.,]*)\s+pubblicazioni\b/g,(_,n)=>n+' '+(n==='1'?'publication':'publications'))
+       .replace(/\b(\d[\d.,]*)\s+autori SZN\b/g,'$1 SZN authors')
+       .replace(/\b(\d[\d.,]*)\s+associazioni\b/g,'$1 links')
+       .replace(/\b(\d+)\s+esclusioni selezionate\b/g,(_,n)=>n+' '+(n==='1'?'exclusion':'exclusions')+' selected')
+       .replace(/\b(\d+)\s+altre sedi: usa la ricerca\./g,'$1 more venues: use search.')
+       .replace(/\b(\d+)\s+persone\b/g,'$1 people')
+       .replace(/\b(\d+)\s+anelli\b/g,'$1 rings')
+       .replace(/\b(\d+)\s+anello\b/g,'$1 ring');
+    v=v.replace(/^(.+) · (\d+) (?:papers|paper), (\d+) da primo autore, (\d+) con altri SZN$/,'$1 · $2 papers, $3 first-author, $4 with other SZN coauthors');
+    v=v.replace(/^Lavori a primo autore nella selezione: (.+) su (.+) \((.+) esclusi\)\.$/,
+      'First-author papers in selection: $1 of $2 ($3 excluded).');
+    v=v.replace(/^Riordinati (.+) coautori in (.+) (anello|anelli)\. Puoi ancora trascinarli manualmente\.$/,
+      'Arranged $1 coauthors in $2 $3. You can still drag them manually.');
+    v=v.replace(/^FR pesato · rilassamento (.+)$/,'Weighted FR · relaxation $1');
+    v=v.replace(/^JIF importati: (.+) sedi; (.+) lavori a primo autore con valore associato; (.+) righe scartate\. Riferimento: JIF 2025 \(JCR 2026\), applicato a tutti gli anni\.$/,
+      'JIFs imported: $1 venues; $2 first-author papers matched; $3 rows discarded. Reference: 2025 JIF (JCR 2026), applied to all years.');
+    v=v.replace(/^Importazione JIF non riuscita: (.+)$/,'JIF import failed: $1');
+    v=v.replace(/^Principali coautori visibili \((.+)\)$/,'Main visible coauthors ($1)');
+    v=v.replace(/^Autori SZN associati \((.+)\)$/,'Associated SZN authors ($1)');
+    v=v.replace(/^Riordina coautori \((.+)\)$/,'Arrange coauthors ($1)');
+    v=v.replace(/^Mostrati i primi (\d+)\.$/,'Showing the top $1.');
+    v=v.replace(/^Mostrati i primi (\d+) per lavori condivisi\.$/,'Showing the top $1 by shared papers.');
+    v=v.replace(/^Principali (Keyword|Topic|Subfield|Concept|Keywords|Topics|Subfields|Concepts) \((.+)\)$/,(m,kind,num)=>'Top '+({Keyword:'keywords',Topic:'topics',Subfield:'subfields',Concept:'concepts'}[kind]||kind.toLowerCase())+' ('+num+')');
+    v=v.replace(/^(Keyword|Topic|Subfield|Concept) distinti$/,(m,kind)=>'Distinct '+({Keyword:'keywords',Topic:'topics',Subfield:'subfields',Concept:'concepts'}[kind]||kind.toLowerCase()));
+    v=v.replace(/^Primo(\s+[↑↓])$/,'First$1');
+    v=v.replace(/^Ordina per (.+)$/,(m,kind)=>'Sort by '+(D[kind]||kind));
+    v=v.replace(/^Riordinati (.+) coauthors in (.+) (?:ring|rings|anello|anelli)\. Puoi ancora trascinarli manualmente\.$/,(m,n,r)=>'Arranged '+n+' coauthors in '+r+(r==='1'?' ring':' rings')+'. You can still drag them manually.');
+    // Replacements for fragments that may contain numeric values or markup siblings.
+    {
+      const bits=[
+        [' pubblicazioni del CSV 2015–2025 riconosciute per nome',' publications in the 2015–2025 CSV matched by name'],
+        [' publications del CSV 2015–2025 riconosciute per nome',' publications in the 2015–2025 CSV matched by name'],
+        [' publication del CSV 2015–2025 riconosciute per nome',' publication in the 2015–2025 CSV matched by name'],
+        [' (nel grafo sono indicati ',' (the network shows '],
+        [' lavori). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' papers). Topics are derived from publication metadata, not directly assigned to the author.'],
+        [' papers). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' papers). Topics are derived from publication metadata, not directly assigned to the author.'],
+        [' paper). Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.',' paper). Topics are derived from publication metadata, not directly assigned to the author.'],
+        ['. Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.','. Topics are derived from publication metadata, not directly assigned to the author.'],
+        ['Lavori con autori SZN','Papers with SZN authors'],
+        ['Temi attribuiti dai metadati delle pubblicazioni, non direttamente all\'autore.','Topics derived from publication metadata, not directly assigned to the author.'],
+        ['Verifica: ','Verification: '],
+        ['Ruolo: ','Role: '],
+        ['Sede: ','Site: '],
+        ['Fonte: ','Source: '],
+        ['Relazione con SZN: ','Relationship with SZN: '],
+        ['Fonte della fonte: ','Source information: '],
+        ['Pubblicato su elenco ufficiale (data fonte indicata)','Listed on official staff page (source date provided)'],
+        ['Associato SZN - Chair','SZN associate – Chair'],
+        ['Associato SZN - Research Fellow','SZN associate – Research Fellow'],
+        ['Keyword distinti','Distinct keywords'],
+        ['Topic distinti','Distinct topics'],
+        ['Subfield distinti','Distinct subfields'],
+        ['Concept distinti','Distinct concepts'],
+        ['SZN · scientific/technical staff','SZN · scientific/technical staff'],
+        [' SZN nel dataset · ',' SZN authors in the dataset · '],
+        [' SZN authors nel dataset · ',' SZN authors in the dataset · '],
+        [' keyword disponibili',' keywords available'],
+        [' topic disponibili',' topics available'],
+        [' subfield disponibili',' subfields available'],
+        [' concept disponibili',' concepts available'],
+        ['Nessun JIF valido trovato (verifica anno JCR e colonne)','No valid JIF found (check JCR year and columns)'],
+        ['CSV vuoto','Empty CSV'],
+        ['Colonne richieste: Source e JIF_2025','Required columns: Source and JIF_2025'],
+        ['Per applicare una soglia JIF importa prima un CSV verificato per l’edizione JCR 2026.','To apply a JIF threshold, first import a verified CSV for JCR 2026.'],
+        ['lavori nell\'esportazione','papers in the export'],
+        ['lavori con almeno un autore SZN','papers with at least one SZN author'],
+        ['autori SZN collegati (senza soglia)','SZN authors linked (no threshold)'],
+        ['SZN · dip. n.d.','SZN · department n/a'],
+        ['Non SZN · ','Non-SZN · '],
+        ['SZN · personale tecnico-scientifico','SZN · scientific/technical staff'],
+        ['SZN · ','SZN · '],
+        [' · affiliazione documentata',' · documented affiliation'],
+        [' · da verificare',' · verification pending'],
+        ['Dipartimento non determinato','Department unspecified'],
+        ['Dipartimento n.d.','Department n/a'],
+        ['Sicilia (polo individuale non dichiarato)','Sicily (specific location not stated)'],
+        ['Sicilia (Messina/Palermo; polo individuale non dichiarato)','Sicily (Messina/Palermo; specific location not stated)'],
+        ['Sede bibliografica indicata','Publication venue specified'],
+        ['Sede non riportata','Venue not reported'],
+        ['Frequenze calcolate','Frequencies calculated'],
+        ['ruolo n.d.','role n/a'],
+        ['non SZN','non-SZN'],
+      ];
+      for(const [a,b] of bits)if(v.includes(a))v=v.replaceAll(a,b);
+      v=v.replace(/^JIF importati: ([^;]+) sedi; ([^;]+) first-author papers con valore associato; ([^;]+) righe scartate\. Riferimento: JIF 2025 \(JCR 2026\), applicato a tutti gli anni\.$/,'JIFs imported: $1 venues; $2 first-author papers matched; $3 rows discarded. Reference: 2025 JIF (JCR 2026), applied to all years.');
+    }
+    // Mixed metadata rows contain a department and role separated by a dot.
+    if(v.includes(' · '))v=v.split(' · ').map(p=>D[p]||p).join(' · ');
+    // Short dynamic tokens are stored separately in the exact dictionary.
+  }
+  return match[1]+v+match[3];
+}
+function eligible(el){return el && el.nodeType===1 && !el.closest(SKIP);}
+function processText(node){
+  if(node.nodeType!==3 || !node.parentElement || !eligible(node.parentElement))return;
+  let original=originalText.get(node),current=node.nodeValue;
+  if(original===undefined){original={it:current,en:null};originalText.set(node,original);}
+  else if(current!==original.it && current!==original.en){original.it=current;original.en=null;}
+  const target=lang==='en'?translate(original.it):original.it;
+  if(current!==target){original.en=lang==='en'?target:original.en;node.nodeValue=target;}
+}
+function processAttrs(el){
+  if(!eligible(el))return;
+  let saved=originalAttrs.get(el);if(!saved){saved={};originalAttrs.set(el,saved);}
+  for(const a of ATTRS){
+    if(!el.hasAttribute(a))continue;
+    const cur=el.getAttribute(a),r=saved[a];
+    if(!r){saved[a]={it:cur,en:null};}
+    else if(cur!==r.it && cur!==r.en){r.it=cur;r.en=null;}
+    const v=saved[a],want=lang==='en'?translate(v.it):v.it;
+    if(cur!==want){if(lang==='en')v.en=want;el.setAttribute(a,want);}
+  }
+}
+function scan(root){
+  if(root.nodeType===3){processText(root);return;}
+  if(root.nodeType!==1 || !eligible(root))return;
+  processAttrs(root);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_TEXT,{
+    acceptNode(n){
+      if(n.nodeType===1){if(n.matches(SKIP))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT;}
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  while(walker.nextNode()){
+    const n=walker.currentNode;
+    if(n.nodeType===3)processText(n);else processAttrs(n);
+  }
+}
+let queued=new Set(),scheduled=false;
+function queue(root){queued.add(root);if(!scheduled){scheduled=true;queueMicrotask(()=>{scheduled=false;const list=[...queued];queued.clear();for(const item of list)scan(item);});}}
+const observer=new MutationObserver(changes=>{for(const c of changes){
+  if(c.type==='characterData'){queue(c.target);continue;}
+  if(c.type==='attributes'){queue(c.target);continue;}
+  queue(c.target);
+}});
+function setLang(next){lang=next;document.documentElement.lang=lang;toggle.textContent=lang==='it'?'English':'Italiano';
+ toggle.setAttribute('aria-label',lang==='it'?'Switch to English':'Passa all’italiano');
+ toggle.setAttribute('title',lang==='it'?'Switch to English':'Passa all’italiano');
+ document.title=lang==='en'?translate(D.__title_it):D.__title_it;
+ scan(document.body);
+}
+toggle.addEventListener('click',()=>setLang(lang==='it'?'en':'it'));
+window.sznSetLanguage=setLang; // Optional programmatic control for testing.
+observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+setLang('it');
+})();
+</script>
+
 </body></html>
